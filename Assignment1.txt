@@ -1,0 +1,251 @@
+
+	//Task 1 – Write a program to swap two number. For example a=10 and b=20 output should be
+	//a=20 and b=10
+
+package assignment1;
+
+public class Swapping {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int a=10;
+		int b=20;
+		a=a+b;
+		b=a-b;
+		a=a-b;
+		System.out.println("After Swapping a="+a + " and b=" +b);
+		
+	}
+
+}
+
+//Task 2- Write a program to print the sum of below 5 numbers.
+//10,90.78,111,8989,7876
+
+package assignment1;
+
+public class SumOfNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Sum Of Five Numbers is " + (10+90.78+111+8989+7876));
+	}
+
+}
+
+//Task 3- Write a program to print the average of below 5 numbers.
+//10,90.78,111,8989,7876
+
+package assignment1;
+
+public class AverageOfNumbers {
+	
+
+	public static void main(String[] args) {
+	int a=10;
+	float b=90.78f;
+	int c=111;
+	int d=8989;
+	int e=7876;
+	float avg;
+	float sum=a+b+c+d+e;
+	avg=sum/5;
+    System.out.println("Average of Five Numbers is: " + avg);
+
+}
+}
+
+
+//Task 4- Write a program to print all even numbers from 1-200
+
+package assignment1;
+
+public class EvenNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		for(int i=1;i<=200;i++)
+		{
+			if(i%2==0)
+			{
+			System.out.println(i);
+			}
+		}
+
+	}
+
+}
+
+
+//Task 5- Write a program to print all odd numbers from 1-50
+package assignment1;
+
+public class OddNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		for(int i=1;i<=50;i++)
+		{
+			if(i%2!=0)
+			{
+			System.out.println(i);
+			}
+		}
+
+	}
+
+}
+
+
+//Task 6- Write a program to print all prime numbers from 1-1000
+
+package assignment1;
+
+public class PrimeNumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int l=1;
+		int u=1000;
+		int x;
+		for(int i=l;i<=u;i++)
+		{
+			for(x=2;x<i;x++)
+			{
+				if(i%x==0)
+					break;
+			}
+			if(x==i)
+				System.out.println(i);
+		}
+
+	}
+
+}
+
+//Task 7- Write a program to print below pattern
+/*  *
+    * *
+    * * *
+    * * * *
+    * * * * *
+    * * * * * *     */
+
+package assignment1;
+
+public class Pattern {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		for(int i=1;i<=6;i++)
+		{
+			for(int j=1;j<=6;j++)
+			{
+				if(j<=i)
+					System.out.print("* ");	
+			}
+			System.out.print("\n");  
+		}
+
+	}
+
+}
+
+
+//Task 8- Write a program to print below students marks who have scored above 80
+//Example- 78,12,89,55,35
+//Output- 89
+package assignment1;
+
+public class NestedIf {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int s1=78;
+		int s2=12;
+		int s3=89;
+		int s4=55;
+		int s5=35;
+		
+		if(s1>80)
+		{
+			System.out.println(s1);
+		}
+		
+		if(s2>80)
+		{
+			System.out.println(s2);
+		}
+		
+		if(s3>80)
+		{
+			System.out.println(s3);
+		}
+		
+		if(s4>80)
+		{
+			System.out.println(s4);
+		}
+		
+		if(s5>80)
+		{
+			System.out.println(s5);
+		}
+		
+
+	}
+
+}
+
+
+//Task 9- Write a program which will break the current execution if it find number 85
+//Input – [12,34,66,85,900]
+package assignment1;
+
+public class Break {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int [] array= {12,34,66,85,900};
+		
+		for(int i=0;i<5;i++)
+		{
+			if(array[i]==85)
+			{
+				break;
+			}
+			else
+				System.out.println(array[i]);
+		}
+
+	}
+
+}
+
+
+//Task 10- Write a program which will break the current execution if it find “Selenium”
+//Input – [“Java”,”JavaScript”,”Selenium”,”Python”,”Mukesh”]
+
+package assignment1;
+
+public class StringBreak {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String [] array={"Java","Javascript","Selenium","Python","Mukesh"};
+		for(int i=0;i<5;i++)
+		{
+			if(array[i]=="Selenium")
+			{
+				break;
+			}
+			else
+				System.out.println(array[i]);
+		}
+
+	}
+
+}
