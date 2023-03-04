@@ -1,0 +1,325 @@
+//Write a program which can store List of Integer values and print all the values using for loop.
+
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		List<Integer> value= new ArrayList<>();
+		value.add(10);
+		value.add(20);
+		value.add(30);
+		value.add(40);
+		value.add(50);
+		
+		for(int i=0;i<value.size();i++)
+		{
+			System.out.println(value.get(i));
+		}
+		
+	}
+
+}
+
+
+//Write a program which can store List of Integer values and print all the values using for for loop.
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		List<Integer> value= new ArrayList<>();
+		value.add(10);
+		value.add(20);
+		value.add(30);
+		value.add(40);
+		value.add(50);
+		
+		for(Integer val:value)
+		{
+			System.out.println(val);
+		}
+		
+	}
+
+}
+
+//Write a program which can store List of Integer values and print all the values using for iterator
+
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		List<Integer> value= new ArrayList<>();
+		value.add(10);
+		value.add(20);
+		value.add(30);
+		value.add(40);
+		value.add(50);
+		value.add(60);
+		
+	    Iterator<Integer> val=value.iterator();
+	    
+	    while(val.hasNext())
+	    {
+	    	System.out.println(val.next());
+	    }
+		
+	}
+
+}
+
+
+//Write a program which will print sum of all numbers which is stored in list.
+
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		int sum=0;
+		List<Integer> value= new ArrayList<>();
+		value.add(10);
+		value.add(20);
+		value.add(30);
+		value.add(40);
+		value.add(50);
+		value.add(60);
+		
+	    for(int i=0;i<value.size();i++)
+	    {
+	    	sum=sum+value.get(i);
+	    }
+	    
+	    System.out.println(sum);
+		
+	}
+
+}
+
+//Write a program which will pick the values from Array and Store them List.
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		int [] arr= {10,20,30,40,50};
+		
+		List<Integer> list=new ArrayList<>();
+		for(int i:arr) 
+		{
+		    list.add(i);
+		}
+		
+		System.out.println(list); 
+	} 
+
+}
+
+
+/*
+Create a list of numbers 33,44,55,66,77,88 and perform below operation
+Remove second element from list using index
+Remove second element from list using value
+Add 90 at index 3
+Get the length of list
+Print all values from list using any values
+Convert List into array.
+*/
+
+package assignment3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		List<Integer> list=new ArrayList<>();
+		
+		list.add(33);
+		list.add(44);
+		list.add(55);
+		list.add(66);
+		list.add(77);
+		list.add(88);
+        
+		//Remove second element from list using index
+		list.remove(1);
+		System.out.println(list);
+		System.out.println("*****************************");
+
+		//Remove second element from list using value
+         list.remove(Integer.valueOf(55));
+		System.out.println(list);
+		System.out.println("*****************************");
+
+		//Add 90 at index 3
+		list.add(3, 90);
+		System.out.println(list);		
+		System.out.println("*****************************");
+
+
+		//Get the length of list	
+        int length=list.size();
+        System.out.println(length);
+		System.out.println("*****************************");
+
+        
+        //Print all values from list using any values
+		
+        for(Integer i:list)
+        {
+        	System.out.println(i);
+        } 
+        
+		System.out.println("*****************************");
+
+        
+        //Convert List into array.
+
+            int [] arr=new int[list.size()];  
+            
+		for(int i=0;i<list.size();i++)
+		{
+			arr[i]=list.get(i);
+		}
+		
+		for(int a:arr) {	
+		System.out.println(a);
+		}
+		
+	}
+
+}
+
+
+/*
+Write a program which will display true if list contains Mobile else prints false
+List - Web Automation, API Automation, Mobile Automation.
+Output – True
+*/
+
+package assignment3;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ListPrograms {
+
+	public static void main(String[] args) {
+		
+		List<String> list=Arrays.asList("Web Automation", "API Automation", "Mobile Automation");
+		
+		boolean result=list.contains("Mobile");
+		if(result==true)
+		System.out.println("true");
+		else
+			System.out.println(false);
+		
+	}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
