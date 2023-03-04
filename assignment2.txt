@@ -1,0 +1,154 @@
+/*Task 1- Create a class name as “Trainer” which will have 4 fields name, department , email,
+id. Trainer can teach Selenium, DevOps, Web Development.
+Note- use method, constructor
+Trainer details are
+Trainer 1 – “Mukesh” ,”Testing”,mukesh@gmail.com, 1
+Trainer 2 – “Hitesh” ,”Dev”,mukesh@gmail.com, 2
+Trainer 1 – “Mukesh” ,”DevOps”,mukesh@gmail.com, 3
+Trainer 1 can teach Selenium, Trainer 2 can teach Web Development, Trainer 3 can teach
+DevOps.	*/
+
+		
+package assignment2;
+public class Trainer {
+	
+	String name;
+	String department;
+	String email;
+	int id;
+	
+	public Trainer(String name, String department, String email, int id)
+	{
+		 this.name=name;
+		 this.department=department;
+		 this.email=email;
+		 this.id=id;
+	}
+	
+	public void selenium()
+	{
+		System.out.println("Trainer 1 can teach Selenium");
+		
+	}
+	
+	public void devOps()
+	{
+		System.out.println("Trainer 3 can teach DevOps");
+	}
+	
+	public void webDev()
+	{
+		System.out.println("Trainer 2 can teach Web Development");
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Trainer trainer1=new Trainer("Mukesh","Testing","mukesh@gmail.com",1);
+		Trainer trainer2=new Trainer("Hitesh","Dev","mukesh@gmail.com",2);
+		Trainer trainer3=new Trainer("Mukesh","DevOps","mukesh@gmail.com",3);
+        trainer1.selenium();
+        trainer2.webDev();
+        trainer3.devOps();
+	}
+
+}
+
+
+
+//Task 2- Extension of task 1 – Store all trainer information in Array.
+
+package assignment2;
+public class Trainer {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        
+      Object [][] trainer= {
+    		  {"Mukesh","Testing","mukesh@gmail.com",1},
+    		  {"Hitesh","Dev","mukesh@gmail.com",2},
+    		  {"Mukesh","DevOps","mukesh@gmail.com",3}	  
+      };
+    		for(int i=0;i<3;i++)
+    		{
+    			for(int j=0;j<4;j++)
+    			{
+    			System.out.print(trainer[i][j]);
+    			System.out.print(" ");
+    		}
+    			System.out.println();
+    		}
+         	   
+       
+	}
+
+}
+
+/*Task 3 – Create a program which will store students information and print the output.
+Program should ask how many students information you want to store. For each students it
+should ask name, email, phone, address, status
+Once all entries are done, program should ask which user information you want to fetch and
+should print the same.
+Note- Use scanner class for dynamic student*/
+
+
+package assignment2;
+import java.util.Scanner;
+public class Student {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Please enter number of student");
+		int n=sc.nextInt();
+		
+		Object [][]student= new Object[n][5];
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<5;) {
+			
+			System.out.println("Please enter name");
+			
+			student[i][j]=sc.next();
+		   j++;
+			System.out.println("Please enter email");
+			student[i][j]=sc.next();
+			j++;
+			
+			System.out.println("Please enter phone");
+			student[i][j]=sc.nextLong();
+			j++;
+			
+			System.out.println("Please enter address");
+			student[i][j]=sc.next();
+			j++;
+			
+			System.out.println("Please enter status");
+			student[i][j]=sc.next();
+			j++;
+}
+		}
+		
+		System.out.println("Please enter which student details you are looking for");
+		int num=sc.nextInt();
+		
+			for(int j=0;j<5;) {
+			
+			System.out.println(student[num][j]);
+			j++;
+			System.out.println(student[num][j]);
+			j++;
+			System.out.println(student[num][j]);
+			j++;
+			System.out.println(student[num][j]);
+			j++;
+			System.out.println(student[num][j]);
+			j++;
+			
+		}
+	   sc.close();
+	   
+	}
+
+}
