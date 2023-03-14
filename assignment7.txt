@@ -1,0 +1,217 @@
+/*
+Open below application
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Click on login button (No need to enter login details)
+Verify required fields present for username and password
+Verify that username and password have border of 1px.
+Note- use getCssProperty to fetch css details
+
+*/
+
+package assignment7;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Practice {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		WebDriver driver=new EdgeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Thread.sleep(2000);
+		
+        driver.findElement(By.xpath("//button[contains(normalize-space(),'Login')]")).click();
+        
+       String actualU=driver.findElement(By.xpath("//input[@name='username']//following::span[text()='Required'][1]")).getText();
+       String actualP=driver.findElement(By.xpath("//input[@name='password']//following::span[text()='Required'][1]")).getText();
+ 
+       if(actualU.equals("Required"))
+       {
+    	   System.out.println("Pass");
+       }
+       else
+    	   System.out.println("Fail");
+       
+       
+       if(actualP.equals("Required"))
+       {
+    	   System.out.println("Pass");
+       }
+       else
+    	   System.out.println("Fail");
+
+	}
+
+}
+
+/*
+Task 2
+Open below application
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Enter username as admin and click on the login button
+Verify password field is showing the required message.
+*/
+
+package assignment7;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Practice {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		WebDriver driver=new EdgeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Thread.sleep(2000);
+		
+        
+    driver.findElement(By.xpath("//input[@name='username']")).sendKeys("admin");
+    driver.findElement(By.xpath("//button[contains(normalize-space(),'Login')]")).click();
+
+    String actual=driver.findElement(By.xpath("//input[@name='password']//following::span[text()='Required']")).getText();
+    
+    if(actual.equals("Required"))
+    {
+    	System.out.println("Pass");
+    }
+    else
+    	System.out.println("Fail");
+
+
+	}
+
+}
+
+
+/*
+
+Task 3
+Open below application
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Enter username as admin and password as mukesh and click on the login button
+Capture error message and verify message contains Invalid credentials
+*/
+
+package assignment7;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Practice {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		WebDriver driver=new EdgeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Thread.sleep(2000);
+		
+        
+    driver.findElement(By.xpath("//input[@name='username']")).sendKeys("admin");
+    driver.findElement(By.xpath("//input[@name='password']")).sendKeys("mukesh");
+    driver.findElement(By.xpath("//button[contains(normalize-space(),'Login')]")).click();
+    Thread.sleep(2000);
+   String errorMessage= driver.findElement(By.xpath("//div[contains(@class,'login-error')]//p[text()='Invalid credentials']")).getText();
+	    
+				    if(errorMessage.contains("Invalid credentials"))
+				    {
+				    	System.out.println("Pass");
+			        }
+			    else
+				    	System.out.println("Fail");
+
+
+	}
+
+}
+
+/*
+Task 4
+Open below application
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Enter username as admin and password as admin123 and click on the login button
+Capture the url and verify url contains dashboard
+Click on image > Click on Logout
+*/
+
+
+package assignment7;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Practice {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		WebDriver driver=new EdgeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		Thread.sleep(2000);
+		
+        
+    driver.findElement(By.xpath("//input[@name='username']")).sendKeys("admin");
+    driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin123");
+    driver.findElement(By.xpath("//button[contains(normalize-space(),'Login')]")).click();
+   
+   String actualUrl= driver.getCurrentUrl();
+	    
+				    if(actualUrl.contains("dashboard"))
+				    {
+				    	System.out.println("Pass");
+			        }
+			    else
+				    	System.out.println("False");
+
+				    Thread.sleep(1000);
+				    driver.findElement(By.xpath("//li[@class='oxd-userdropdown']//img[contains(@alt,'profile picture')]")).click();
+          driver.findElement(By.xpath("//a[contains(@href,'logout')]")).click();
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
