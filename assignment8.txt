@@ -1,0 +1,228 @@
+/*
+Task 1
+Open https://www.facebook.com/
+Capture the below text and verify text contains the below text
+Facebook helps you connect and share with the
+people in your life
+*/
+
+package assignment8;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class FacebookTest {
+
+	public static void main(String[] args) {
+
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		
+	    driver.get("https://www.facebook.com/");
+	    
+	  String actual=driver.findElement(By.xpath("//div[@id='globalContainer']//h2")).getText();
+        
+	  String Expected="Facebook helps you connect and share with the people in your life";
+
+	  if(actual.contains(Expected))
+	  {
+		  System.out.println("Pass");
+	  }
+	  else
+		  System.out.println("Fail");
+	}
+
+}
+
+
+/*
+Task2
+Open https://www.facebook.com/
+Capture all link text available in the footer section and verify Create Page Link is present or not.
+If yes then click on it.
+*/
+
+import java.util.ArrayList;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class FacebookTest {
+
+	public static void main(String[] args) {
+
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		
+	    driver.get("https://www.facebook.com/");
+	    List<WebElement> list=driver.findElements(By.xpath("//div[@id='pageFooter']//a[@href]"));
+	    List<String> list2=new ArrayList<>();
+	    
+	    for(WebElement ele:list)
+	    {
+	    	list2.add(ele.getText());
+	    	if(ele.getText().equals("Create Page"))
+	    	{
+	    		System.out.println("Create Page link is present");
+	    		ele.click();
+	    		break;
+	    	}
+	  
+	    }
+	
+	}
+
+}
+
+
+/*
+Task 3
+Note- Please use only xpath in this scenario
+Open https://www.facebook.com/
+Click on Create new account
+Fill in all details and click on the Signup button
+Using Xpath
+*/
+
+
+package assignment8;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class FacebookTest {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		
+	    driver.get("https://www.facebook.com/");
+	      
+	    driver.findElement(By.xpath("//a[contains(normalize-space(),'Create new account')]")).click();
+	    Thread.sleep(1000);
+	    
+	    driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys("Harshit");
+	    driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys("Garg");
+	    driver.findElement(By.xpath("//input[@name='reg_email__']")).sendKeys("k@gmail.com");
+	    driver.findElement(By.xpath("//input[@name='reg_email_confirmation__']")).sendKeys("k@gmail.com");
+	    driver.findElement(By.xpath("//input[@name='reg_passwd__']")).sendKeys("#3Asdfghjkl");
+	    Select element1=new Select(driver.findElement(By.xpath("//Select[@id='day']")));
+        element1.selectByVisibleText("12");
+	    
+	    Select element2=new Select(driver.findElement(By.xpath("//Select[@id='month']")));
+        element2.selectByVisibleText("Jan");
+        
+	    Select element3=new Select(driver.findElement(By.xpath("//Select[@id='year']")));
+        element3.selectByVisibleText("2000");
+
+        driver.findElement(By.xpath("//label[text()='Male']")).click();
+        driver.findElement(By.xpath("//button[normalize-space()='Sign Up']")).click();
+
+	    
+	}
+
+}
+
+
+/*
+Task 4
+Perform same steps which you did in task 3 but replace all xpath with css Selectors
+*/
+
+package assignment8;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class FacebookTest {
+
+	public static void main(String[] args) throws InterruptedException {
+
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		
+	    driver.get("https://www.facebook.com/");
+	      
+	    driver.findElement(By.cssSelector("a[data-testid='open-registration-form-button']")).click();
+	    Thread.sleep(1000);
+	    
+	    driver.findElement(By.cssSelector("input[name='firstname']")).sendKeys("Harshit");
+	    driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys("Garg");
+	    driver.findElement(By.cssSelector("input[name='reg_email__']")).sendKeys("k@gmail.com");
+	    driver.findElement(By.cssSelector("input[name='reg_email_confirmation__']")).sendKeys("k@gmail.com");
+	    driver.findElement(By.cssSelector("input[name='reg_passwd__']")).sendKeys("#3Asdfghjkl");
+	    Select element1=new Select(driver.findElement(By.cssSelector("Select[id='day']")));
+        element1.selectByVisibleText("12");
+	    
+	    Select element2=new Select(driver.findElement(By.cssSelector("Select[id='month']")));
+        element2.selectByVisibleText("Jan");
+        
+	    Select element3=new Select(driver.findElement(By.cssSelector("Select[id='year']")));
+        element3.selectByVisibleText("2000");
+
+        driver.findElement(By.cssSelector("input[value='2']")).click();
+        driver.findElement(By.cssSelector("button[name='websubmit']")).click();
+
+	    
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
