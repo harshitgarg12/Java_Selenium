@@ -1,0 +1,262 @@
+/*
+Task 1
+Open below application
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Capture the application url and verify url ends with “login”
+Capture the application url and verify url contains “demo”
+Capture the application title and verify title contains HRM
+*/
+
+package assignment5;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTasks {
+
+	public static void main(String[] args) throws InterruptedException {
+
+    WebDriver driver=new ChromeDriver();
+    driver.manage().window().maximize();
+    
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    
+    String actual=driver.getCurrentUrl();
+    
+    //ends with login task
+    if(actual.endsWith("login"))
+    {
+    	System.out.println("Pass");
+    }
+    else
+    	System.out.println("Fail");
+    
+    //contains demo task
+    
+    if(actual.contains("demo"))
+    {
+    	System.out.println("Pass");
+    	
+    }
+    else
+    	
+    	System.out.println("Fail");
+    
+    //contains HRM task
+    
+    if(actual.contains("HRM"))
+    {
+    	System.out.println("Pass");
+    	    	
+    	    }
+    	    else
+    	    	
+    	    	System.out.println("Fail");
+    }
+    
+}
+
+/*
+Task 2
+Open below application and verify logo is present or not
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+*/
+
+package assignment5;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTasks {
+
+	public static void main(String[] args) throws InterruptedException {
+
+    WebDriver driver=new ChromeDriver();
+    driver.manage().window().maximize();
+    
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    
+    Thread.sleep(2000);
+    WebElement element=driver.findElement(By.xpath("(//img[@alt='orangehrm-logo'])[2]"));
+    
+    Boolean result=element.isDisplayed();
+    if(result==true)
+    {
+    	System.out.println("Pass");
+    }
+    
+    else
+    	System.out.println("Fail");
+    }
+    
+}
+
+
+/*
+Task 3
+Open below application and verify that footer has 4 social media icons
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+*/
+
+package assignment5;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTasks {
+
+	public static void main(String[] args) throws InterruptedException {
+
+    WebDriver driver=new ChromeDriver();
+    driver.manage().window().maximize();
+    
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    Thread.sleep(2000);
+    int count=0;
+    
+   if( driver.findElement(By.xpath("//a[contains(@href,'linkedin')]")).isDisplayed())
+	  count++;
+    driver.findElement(By.xpath("//a[contains(@href,'facebook')]")).isDisplayed();
+    count++;
+    
+    if(driver.findElement(By.xpath("//a[contains(@href,'twitter')]")).isDisplayed())
+    	count++;
+    	
+    if(driver.findElement(By.xpath("//a[contains(@href,'youtube')]")).isDisplayed())
+    	count++;
+	
+	
+	if(count==4)
+	{
+		System.out.println("Pass, Footer has 4 social media links");
+	}
+	
+	else
+		
+		System.out.println("Fail" +count);
+}
+}
+
+
+/*
+Open the below application and verify the capture all href values from social media icons. Store
+all 4 href values in map in below format.
+FaceBook - fburl
+Twitter - Twitter url
+Youtube - Youtube URL
+Linkedin - Linkedin URL
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+*/
+
+package assignment5;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTasks {
+
+	public static void main(String[] args) throws InterruptedException {
+
+    WebDriver driver=new ChromeDriver();
+    driver.manage().window().maximize();
+    
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    Thread.sleep(2000);
+    
+   String s1= driver.findElement(By.xpath("//a[contains(@href,'linkedin')]")).getAttribute("href");
+    String s2=driver.findElement(By.xpath("//a[contains(@href,'facebook')]")).getAttribute("href");
+    String s3=driver.findElement(By.xpath("//a[contains(@href,'twitter')]")).getAttribute("href");
+   String s4= driver.findElement(By.xpath("//a[contains(@href,'youtube')]")).getAttribute("href");
+    
+	Map<String,String> m1=new HashMap<>();
+	
+	m1.put("Facebook", s2);
+	m1.put("Twitter", s3);
+	m1.put("Youtube", s4);
+	m1.put("Linkedin", s1);
+	
+	System.out.println(m1);
+}
+}
+
+/*
+Task 5
+Open the below application and verify the capture all href values from social media icons. Run a
+loop and verify if any url contains youtube. If youtube found then break the loop.
+https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+*/
+
+package assignment5;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumTasks {
+
+	public static void main(String[] args) throws InterruptedException {
+
+    WebDriver driver=new ChromeDriver();
+    driver.manage().window().maximize();
+    
+    driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    Thread.sleep(2000);
+    
+   String s1= driver.findElement(By.xpath("//a[contains(@href,'linkedin')]")).getAttribute("href");
+    String s2=driver.findElement(By.xpath("//a[contains(@href,'facebook')]")).getAttribute("href");
+    String s3=driver.findElement(By.xpath("//a[contains(@href,'twitter')]")).getAttribute("href");
+   String s4= driver.findElement(By.xpath("//a[contains(@href,'youtube')]")).getAttribute("href");
+    
+	List<String> l1=new ArrayList<>();
+	l1.add(s1);
+	l1.add(s2);
+	l1.add(s3);
+	l1.add(s4);
+
+	for(String str:l1)
+	{
+		if(str.contains("youtube"))
+		{
+			System.out.println("Found Yuotube url " +str);
+			break;
+		}
+	}
+	
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
