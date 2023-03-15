@@ -1,0 +1,60 @@
+/*
+Task - Create a user
+Open https://ineuron-courses.vercel.app/signup
+Verify Sign up button is disabled
+FIll all details
+Verify Sign up button is enabled
+Click on Sign up button
+Verify user is created or not (by login with same credentails)
+*/
+
+package assignment9;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class IneuronLogin {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://ineuron-courses.vercel.app/signup");
+		Thread.sleep(3000);
+		
+	Boolean result=	driver.findElement(By.xpath("//button[text()='Sign up']")).isEnabled();
+    System.out.println("Before enterng values: " +result);
+    WebElement element1=driver.findElement(By.xpath("//button[text()='Sign up']"));
+    driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Harshit Garg");
+    driver.findElement(By.xpath("//input[@name='email']")).sendKeys("harshitgg@gmail.com");
+    driver.findElement(By.xpath("//input[@name='password']")).sendKeys("#3Asdfghjkl");
+    driver.findElement(By.xpath("//label[contains(text(),'Selenium')]//preceding::input[1]")).click();
+    driver.findElement(By.xpath("//label[contains(text(),'Male')]//preceding::input[1]")).click();
+
+	Select element=new Select(driver.findElement(By.xpath("//Select[@name='state']")));
+		element.selectByVisibleText("Uttar Pradesh");
+		Boolean after=driver.findElement(By.xpath("//button[text()='Sign up']")).isEnabled();
+		System.out.println("Status after entering values: "+after);
+		try {
+		driver.findElement(By.xpath("//button[text()='Sign up']")).click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Normal click not working try javascriptExecutor click");
+			JavascriptExecutor js=(JavascriptExecutor) driver;
+			js.executeScript("arguments[0].click()", element1);
+		}
+		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@name='email1']")).sendKeys("harshitgargbm@gmail.com");
+		driver.findElement(By.xpath("//input[@name='password1']")).sendKeys("#3Asdfghjkl");
+		driver.findElement(By.xpath("//button[contains(normalize-space(),'Sign in')]")).click();
+		
+       System.out.println("Logged in");
+	}
+
+}
